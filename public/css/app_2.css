@@ -1,0 +1,126 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+html,body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.infos h1 {
+    display: none;
+}
+.infos {
+    display: flex;
+    justify-content: start;
+}
+.infos {
+    margin-left: 0px; 
+    
+}
+.infos #more-infos {
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+}
+#more-infos h5 {
+    padding: 8px;   
+}
+#more-infos h5:nth-child(1) {
+    color:black ; 
+    border-bottom: 2px solid black ; 
+    padding-bottom: 6px;
+}
+.infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    margin-top: 0px;
+    width: 90%;
+    background: gray;
+}
+.reviews {
+    color: gold;
+}
+.choose {
+    cursor: pointer;
+}
+
+.buttons {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttons button {
+    margin: 10px;
+    width: 180px;
+    padding: 5px;
+    font: inherit;
+    border: 2px solid #5FDFFC;
+    border-radius: 25px;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+}
+.buttons button:nth-child(1) i {
+    margin-right: 10px;
+}
+.buttons button:hover {
+    color: white;
+    background-color: #5FDFFC;
+}
+@media ( min-width : 1025px) {
+
+body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+.choose {
+    cursor: pointer;
+    }
+.infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 0px;
+        height: 98%;
+        width: 98%;
+        font-size: 20px;
+        padding-right: 70px;
+        background: blue;
+    }
+.infos h1 {
+        display: block;
+    }
+.buttons {
+        flex-direction: row;
+        font-size: 15px;
+    }
+.buttons button {
+        padding: 8px;
+    }  
+}
+
+@media (min-width : 670px) {
+.infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 0px;
+        height: 96%;
+        width: 93%;
+        font-size: 20px;
+        padding-right: 70px;
+        background: red;
+    }
+
+}

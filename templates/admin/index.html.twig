@@ -1,0 +1,160 @@
+{% extends 'app.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+
+
+<div class="banner"> 
+	{% for message in app.flashes('message') %}
+			<div class="col-xs4">
+				<div class="p-3 my-2 rounded-2 success">{{message}}</div>
+			</div>
+		{% endfor %}
+         <div class="banner-content">
+         
+		    <!-- Hero Section  -->
+   
+				   <!-- Hero Section  -->  
+       </div>
+       </div>  
+
+  <!-- banner -->
+<div class="scroll" id="bodyright">
+ 
+<h2 style="
+    background: yellow;
+    width: 98.3%;
+    height: 60px;
+    line-height: 62px;
+    padding-left: 17px;
+    border-bottom: 5px solid blue;
+    border-left: 5px solid blue;
+">INFORMATIONS ANNONCES
+<i class="fas fa-user-edit"></i><i class="far fa-edit"></i><i class="fal fa-money-check-edit"></i>
+</h2>
+
+<table style="margin-left: 5%;">
+	 <td>
+  <a href="{{ path('admin_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		line-height: 25px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Accueil</a>
+</td><td>
+<a href="{{ path('admin_users') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Utilisateur</a>
+</td><td>
+<a href="{{ path('admin_annonces_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">ANNONCES</a>
+</td><td>
+<a href="{{ path('admin_categories_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Categorie</a>
+</td><td>
+<a href="{{ path('app_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Boite de réception</a>
+</td><td>
+<a href="{{ path('app_logout') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Deconnection</a>
+</td>
+</table>
+</div>
+
+	
+</div>
+	
+{% endblock %}

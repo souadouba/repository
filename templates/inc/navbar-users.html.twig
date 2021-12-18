@@ -1,0 +1,18 @@
+<div class="head">
+<h1><img src="{{ asset('../images/logo.png') }}">E-SenCostat-Auto.sn</h1>
+</div>
+<section class="section-1">
+	<div id="navbar" class="nav">
+		<ul class="main-menu">
+			<li><a href="{{ path('users') }}">PRESENTATION</a></li>
+            <li><a href="{{ path('app_home') }}">MODE D'EMPLOI</a></li>
+			<li><a href="{{ path('pub') }}">REPONSE</a></li>
+            <li>Accueil/Deconnéxion
+			<ul class="sub-menu">
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_logout') }}">Deconnéxion</a></li>
+            </ul>
+            </li>
+		</ul>
+	</div>
+</section>

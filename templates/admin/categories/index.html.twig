@@ -1,0 +1,157 @@
+{% extends 'app.html.twig' %}
+
+{% block title %}Gérer les catégories{% endblock %}
+
+{% block body %}
+	<h1 style="
+    background: yellow;
+    width: 98.3%;
+    height: 60px;
+    line-height: 62px;
+    padding-left: 17px;
+    border-bottom: 5px solid blue;
+    border-left: 5px solid blue;
+">Gérer les catégories<i class="fab fa-expeditedssl"></i></h1>
+	<table style="margin-left: 5%;">
+	 <td>
+  <a href="{{ path('admin_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		line-height: 25px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Accueil</a>
+</td><td>
+<a href="{{ path('admin_users') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Utilisateur</a>
+</td><td>
+<a href="{{ path('admin_annonces_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">ANNONCES</a>
+</td><td>
+<a href="{{ path('admin_categories_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Categorie</a>
+</td><td>
+<a href="{{ path('users_pass_modifier') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Boite de réception</a>
+</td><td>
+<a href="{{ path('app_logout') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Deconnection</a>
+</td>
+</table>
+
+	<table class="table striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Parent</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for categorie in categories %}            
+			<tr>
+		
+				<td style='min-width:40px;color:#000'>{{categorie.id}}</td>
+				<td style='min-width:200px;color:#000'>{{categorie.nom}}</td>
+				<td style='min-width:200px;color:#000'>{{categorie.Parent}}</td>
+				<td style='min-width:150px;color:#000'>
+                 <a href="{{ path("admin_categories_ajout") }}" class="btn blue">Ajouter une catégorie</a>
+                <a href="{{ path("admin_categories_modifier", {id: categorie.id}) }}" class="btn blue">Modifier</a>
+				</td>	
+				</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

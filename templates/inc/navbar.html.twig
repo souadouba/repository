@@ -1,0 +1,56 @@
+<div class="head">
+<div class="container">
+{% if app.user %}
+<button class="clack"><div class="btn-round"><i class="fas fa-user"></i></div></button>
+<button class="click">{{ app.user.username }}<i class="fas fa-chevron-down"></i></button>
+  {% else %}
+            <a href="{{ path('app_login') }}"><button class="clock">Connexion / Inscription</button></a>
+ {% endif %}
+<div class="list">
+    <ul class="links">
+    {% if is_granted('ROLE_ADMIN') %}
+		<li><a href="{{ path('admin_home') }}">Administrateur</a></li>
+    {% else %}
+		<li><a href="{{ path('users_annonces_ajout') }}">Activité</a></li>
+    {% endif %}
+	    <li><a href="{{ path('users') }}">Mon compte</a></li>
+<div class="ligne" style="margin-top:4.5%;width: 100%;background-color: #000; height:2px;margin-left:0%;"></div>
+		<li><button class="cluck"><a href="{{ path('app_logout') }}">Se deconnéter</a></button></li>
+    </ul>
+</div>
+</div> 
+		 
+		  <script>
+
+            let click = document.querySelector('.click');
+
+            let list = document.querySelector('.list');
+
+            click.addEventListener("click",()=>{
+
+                list.classList.toggle('newlist');
+
+            });
+
+        </script> 
+		
+<h1><img class="img-logo" src="{{ asset('../images/logo.png') }}">E-SenCostat-Auto.sn</h1>
+</div>
+<section class="section-1">
+	<div id="navbar" class="nav">
+		<ul class="main-menu">
+			<li><a href="{{ path('app_home') }}">PRESENTATION</a></li>
+            <li>MODE D'EMPLOI</li>
+			
+			<li>QUESTION/REPONSES
+			   <ul class="sub-menu">
+               	<li>QUESTION</li>
+               	<li>REPONSES</li>
+               </ul>
+            </li>
+                <li>PRESS</li>
+		</ul>
+	</div>
+
+      {{ include('inc/menu.html.twig')}}
+</section>

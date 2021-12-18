@@ -1,0 +1,228 @@
+{% extends 'base4.html.twig' %}
+
+{% block title %}Gérer les annonces
+{% endblock %}
+{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/radio.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/t111.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/tt33.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/btn.css') }}">
+<script defer src="/fonts/fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js"></script>
+
+ {% endblock %}
+{% block body %}
+	<h1  style="
+    background: yellow;
+    width: 98.3%;
+    height: 60px;
+    line-height: 62px;
+    padding-left: 17px;
+    border-bottom: 5px solid blue;
+    border-left: 5px solid blue;
+">Gérer les annonces</h1>
+	<table style="margin-left: 5%;">
+	 <td>
+  <a href="{{ path('admin_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		line-height: 25px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Accueil</a>
+</td><td>
+<a href="{{ path('admin_user') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Utilisateur</a>
+</td><td>
+<a href="{{ path('admin_annonces_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">ANNONCES</a>
+</td><td>
+<a href="{{ path('admin_categories_home') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Categorie</a>
+</td><td>
+<a href="{{ path('user_pass_modifier') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Boite de réception</a>
+</td><td>
+<a href="{{ path('app_logout') }}" style="position: absolue;
+		display: inline-block;
+		width:150px;
+        height:44px;
+	    margin-top: 1px;
+		z-index: 5;
+		text-align: left;
+		line-height: 25px;
+		padding: 7px 15px;
+		border:2px solid #fff;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 1000;
+		-webkit-transition: color .2s ease, background .5s ease;
+		-o-transition: color .2s ease, background .5s ease;
+		transition: color .2s ease, background .5s ease;
+		overflow: hidden; background: #97C6E3;
+		color: blue" class="link">Deconnection</a>
+</td>
+</table>
+	
+				<form method="post" enctype="multipart/form-data">	
+		<table style="margin-left:0%">
+			<tr>
+				<th>No.</th>
+				<th>Titre</th>		
+                <th>Message</th>
+				<th>Images</th>
+				<th>Date/Prix/Livrer</th>
+				<th>Action</th>
+			</tr>	
+{% for annonce in annonces %}				
+<tr>
+		
+				<td style='min-width:40px;color:#000'>{{annonce.id}}</td>
+				<td style='min-width:100px;color:#000'>{{annonce.titre}}</td>
+				<td style='min-width:100px;color:#000'>{{annonce.content}}
+				</td>
+				<td style='min-width:50px;color:#000'>
+				{% for image in annonce.images %}		
+				<img src="{{ asset('/uploads/images/annonces/' ~ image.nom) }}" width="75" height="75px" >
+				{% endfor %}
+			    </td>
+				<td style='min-width:100px;color:#000'>{{annonce.createdAt|date}}<br>{{annonce.price}}<br>{{annonce.livr}}</td>
+				<td style='min-width:150px;color:#000'>
+<label class="toggle"> 
+    <input type="checkbox" {{ (annonce.active) ? 'checked' : ''}} data-id="{{annonce.id}}">
+    <span class="ball"></span> 
+</label>
+
+	<a href="{{ path('annonces_details', {slug: annonce.slug})}}" style="display: inline-block;
+font-size: 28px;font-weight: 700;text-transform: uppercase;
+height: 30px;width: 45px;text-align: center;line-height: 32px;border-radius: 50%;text-decoration: none;
+box-shadow: -2px -2px 8px white, -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+margin-left: 0%;background: #fff;"><i class="fas fa-eye"></i></a>
+
+<label  for="show" class="show-btn" data-id="{{annonce.id}}" data-titre="{{annonce.titre}}"><i class="fas fa-trash"></i></label>
+<div class="center">  
+			            <input type="checkbox" id="show" style="background:red">
+
+            <div class="container5">
+               <div class="text">
+Supprimer une annonce :
+               </div>
+           <form>
+      <div class="dbl-field">
+
+	  </div>
+      <div class="button-area">
+        <a href="">Supprimer</a>
+        <span></span>
+      </div>
+	  <div class="close" style="float: right;display: flex;align-items: center;border-radius: 50%;justify-content: center;transition: all 0.3s ease-in-out;  color: #878787;
+  font-size: 17px;background: #f2f3fb;height: 33px;width: 33px;cursor: pointer;margin-top: -11px;"><a href="{{ path('admin_annonces_home') }}"><i class="fas fa-times"></i></a></div>
+    </form>
+            </div>
+         </div>
+	
+			</td>
+			</tr>
+				{% endfor %}
+				</table>
+
+{% endblock %}
+{% block javascripts %}
+	<script>
+		window.onload = () => {
+			let activer = document.querySelectorAll("[type=checkbox]")
+			for (let bouton of activer) {
+				bouton.addEventListener("click", function () {
+					let xmlhttp = new XMLHttpRequest;
+
+					xmlhttp.open("get", `/admin/annonces/activer/${this.dataset.id}`)
+					xmlhttp.send()
+				})
+			}
+
+			let supprimer = document.querySelectorAll(".show-btn")
+			for(let bouton of supprimer){
+				bouton.addEventListener("click", function () {
+					document.querySelector(".button-area a").href = `/admin/annonces/supprimer/${this.dataset.id}`
+					document.querySelector(".dbl-field").innerText = `Êtes-vous sûr(e) de vouloir supprimer l'annonce de : "${this.dataset.titre}"`
+				})
+	
+			}
+		}
+	</script>
+
+{% endblock %}

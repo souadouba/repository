@@ -1,0 +1,802 @@
+{% extends 'app.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+<style>
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: red;
+}
+::selection{
+  color: #fff;
+  background: #d43f8d;
+}
+.container{
+  width: 330px;
+  background: #fff;
+  text-align: center;
+  border-radius: 0px;
+  padding: 50px 35px 10px 35px;
+}
+.container header{
+  font-size: 35px;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+}
+.container .form-outer{
+  width: 98.2%;
+  overflow: hidden;
+  border-left: 3px solid deepskyblue;
+  border-right: 3px solid deepskyblue;
+  border-bottom: 2px solid deepskyblue;
+}
+.container .form-outer form{
+  display: flex;
+  width: 400%;
+  background: darkgray;
+}
+.form-outer form .page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-outer form .page .title{
+ text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    height: 50px;
+    width: 70px;
+    background: deepskyblue;
+    margin: 2px
+}
+.form-outer form .page .mes{
+ text-align: left;
+    font-size: 17px;
+    font-weight: 500;
+    height: 50px;
+    background: blue;
+    margin: 2px;
+    margin-left: 95px;
+    margin-top: -16%;
+}
+.form-outer form .page .field{
+  width: 330px;
+  height: 45px;
+  margin: 45px 0;
+  display: flex;
+  position: relative;
+  margin-left: 3.5px;
+}
+form .page .field .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .page .field input{
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 0px;
+  padding-left: 45px;
+  font-size: 18px;
+}
+form .page .field select{
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+textarea#annonces_content {
+    margin: 0px;
+    width: 311px;
+    height: 136px;
+    border: 1px solid lightgrey;
+    border-radius: 0px;
+    font-size: 18px;
+}
+form .page .field button{
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: deepskyblue;
+  margin-top: 40px;
+  border-radius: 0px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+  border-top: 2px solid deepskyblue;
+
+}
+form .page .field button:hover{
+  background: #d33f8d;
+}
+form .page .btns button{
+  margin-top: 40px!important;
+}
+form .page .btns button.prev{
+  margin-right: 0px;
+  font-size: 17px;
+  border-top: 2px solid deepskyblue;
+}
+form .page .btns button.next{
+  margin-left: 0px;
+  border-top: 2px solid deepskyblue;
+}
+.container .progress-bar{
+  display: flex;
+  margin: 0px 0;
+  user-select: none;
+  background: deepskyblue;
+  margin-top: -12%;
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 25px;
+  width: 60px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 0%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  border-color: #d43f8d;
+  background: #d43f8d;
+}
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.active span{
+  display: none;
+}
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+    position: absolute;
+    content: '';
+    bottom: 11px;
+    right: -68px;
+    height: 2px;
+    width: 64px;
+    top: 126%;
+}
+.progress-bar .step .bullet.active:after{
+  background: #d43f8d;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.progress-bar .step p.active{
+  color: #d43f8d;
+  transition: 0.2s linear;
+}
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active{
+  display: block;
+  color: #fff;
+}
+
+input#annonces_circontance_1{
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_2{
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_3 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_4 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_5 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_6 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_7 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_8 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_9 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_10 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+input#annonces_circontance_11 {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+div#annonces_circontance_14 {
+    width: 20px;
+    height: 20px;
+}
+div#annonces_circontance_15 {
+    width: 20px;
+    height: 20px;
+}
+div#annonces_circontance_16 {
+    width: 20px;
+    height: 20px;
+}
+div#annonces_circontance_17 {
+    width: 20px;
+    height: 20px;
+}
+div#annonces_circontance_18 {
+    width: 20px;
+    height: 20px;
+}
+form .page .field .labo{
+  position: absolute;
+  top: 8px;
+  font-weight: 500;
+  margin-left: 60px;
+  font-size: 13px;
+}
+label.required {
+    color: transparent;
+}
+label{
+  color:transparent;
+}
+form .page .field .lab{
+  position: absolute;
+  top: 4px;
+  font-weight: 500;
+  margin-left: 60px;
+  font-size: 13px;
+}
+form .page .field .labe{
+    position: absolute;
+    top: 50px;
+    font-weight: 500;
+    margin-left: 60px;
+    font-size: 13px;
+}
+canvas{
+    border: 1px solid black;
+}
+
+
+
+.container2 {
+  max-width: 400px;
+  width: 100%;
+  height: 42px;
+  padding: 1px;
+  border-radius: 0px;
+  margin-top: 40px;
+  margin-left: -18.2%;
+  background-color: #fff;
+  }
+  .step2 {
+    display: none;
+  }
+  .step2.active {
+    display: block;
+  }
+  .form-group {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .but{
+      margin-top: -4px;
+  }
+  input#annonces_images_0 {
+    display: none;
+  }
+  input#annonces_images_1 {
+    display: none;
+  }
+  input#annonces_images_2 {
+    display: none;
+  }
+  input#annonces_images_3 {
+    display: none;
+  }
+  label.next-btn,
+  label.previous-btn,
+  label.submit-btn {
+    /* margin-top: 0px; */
+    padding: 20px 0px;
+    /* height: 3px; */
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: "Montserrat";
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+label.next-btn {
+    color: red;
+}
+
+img#changeimage2 {
+    margin: 5px;
+}
+  button.previous-btn {
+    float: left;
+  }
+  button.submit-btn {
+    background-color: aquamarine;
+  }
+
+
+
+  .diff_services{
+	display: flex;
+	margin-top: 0px;
+	justify-content: space-around;
+    
+}
+
+.diff_service_item{
+	width: 25%;
+    background: red;
+    border: 2px solid #fff;
+}
+
+.diff_service_item .img-menu{
+	width: 100%;
+    height: 100%;
+	margin-bottom: 70px;
+}
+body {
+            margin: 0;
+            padding: 0;
+        }
+ #map {
+            width: 20%;
+            height: 10vh;
+        }
+</style>
+ 
+  <div class="diff_services">
+      <div class="diff_service_item">
+        <img class="img-menu" src="{{ asset('images/left2.jpg') }}" alt="Service_image">
+      </div>
+
+
+  <div class="container">
+      <div class="progress-bar">
+        <div class="step">
+        <p></p>
+          <div class="bullet">
+            <span>1</span>
+          </div>
+          <div class="ligne6" style="margin-top:1%;width: 98%;background-color: #d43f8d;; height:2px;margin-left:0%;"></div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p></p>
+          <div class="bullet">
+            <span>2</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p></p>
+          <div class="bullet">
+            <span>3</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p></p>
+          <div class="bullet">
+            <span>4</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+         <div class="step">
+           <p></p>
+          <div class="bullet">
+            <span>5</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+      </div>
+      <div class="form-outer">
+        {{ form_start(form, {'attr': {'id': 'annonces'}}) }}
+          <div class="page slide-page">
+             <div class="title">vehicule A</div>
+           <div class="mes">informatio du vehicule</div>
+            <div class="field">
+              <div class="label">NUMERO IMMARTICULATION</div>
+{{ form_row(form.num_imarticul) }}
+            </div>
+            <div class="field">
+              <div class="label">TYPE VEHICULE</div>
+{{ form_row(form.slug) }}
+            </div>
+             <div class="field">
+              <div class="label">DEGAT APPARENT DU VEHICUE</div>
+{{ form_row(form.content) }}
+            </div>
+             <div class="field">
+<input id="annonces_images_0" type="file" name="annonces[images][0]" onchange="myfun()"> 
+<input id="annonces_images_1" type="file" name="annonces[images][1]" onchange="my()"> 
+<input id="annonces_images_2" type="file" name="annonces[images][2]" onchange="myf()"> 
+<input id="annonces_images_3" type="file" name="annonces[images][3]" onchange="myfu()"> 
+<table cellpadding="10" cellspacing="10">
+<tr>     
+ <td>
+  <div class="container2">
+          <div class="but">
+            <div class="step2 step-1 active">
+<label for="file" onclick="document.getElementById('annonces_images_0').click()" class="next-btn">
+<img src="{{ asset('../images/photo.jpg') }}" height="40" width="80" style="margin: 5px;">
+</label>
+            </div>
+            <div class="step2 step-2">
+<label for="file" onclick="document.getElementById('annonces_images_1').click()" class="next-btn">
+<img src="{{ asset('../images/photo.jpg') }}" height="40" width="80" style="margin: 5px;">
+</label>
+            </div>
+            <div class="step2 step-3">
+<label for="file" onclick="document.getElementById('annonces_images_2').click()" class="next-btn">
+<img src="{{ asset('../images/photo.jpg') }}" height="40" width="80" style="margin: 5px;">
+</label>
+            </div>
+               <div class="step2 step-4">
+<label for="file" onclick="document.getElementById('annonces_images_3').click()" class="previous-btn">
+<img src="{{ asset('../images/photo.jpg') }}" height="40" width="80" style="margin: 5px;">
+</label>
+            </div>
+          </div>
+        </div>
+</div>
+</td>  
+</tr>
+</table>
+              <div class="label" style="margin-top: 105px;margin-left: 140px;">Ajouter des photos (4 max).</div>
+
+              </div>
+ <div class="field">
+           <div class="card-body d-flex flex-wrap justify-content-start" style="height:120px;background: #fff;align-items: flex;display: flex;margin-left:0px;margin-top: 90px;">
+<img src="{{ asset('../images/upload.jpg') }}" id="changeimage1" height="110" width="70" style="margin: 5px;">
+<img src="{{ asset('../images/upload.jpg') }}" id="changeimage2" height="110" width="70" style="margin: 5px;">
+  
+<img src="{{ asset('../images/upload.jpg') }}" id="changeimage3" height="110" width="70" style="margin: 5px;">
+<img src="{{ asset('../images/upload.jpg') }}" id="changeimage4" height="110" width="70" style="margin: 5px;">
+    </div>
+              </div>
+            <div class="field" style="margin-top: 70%;margin-left:0;">
+              <button class="firstNext next">Next</button>
+            </div>
+          </div>
+
+          <div class="page">
+          <div class="title">vehicule A</div>
+           <div class="mes">Preneur d'assurance/assure</div>
+           <div class="field">
+              <div class="label">NOM/PRENOM DE L'ASSURE</div>
+{{ form_row(form.num_contrat) }}
+            </div>
+            <div class="field">
+              <div class="label">CONTACT DE L'ASSURE</div>
+{{ form_row(form.nom_temoins) }}
+            </div>
+ <div class="field">
+              <div class="label">CODE POSTALE DE L'ASSURE</div>
+{{ form_row(form.nom_agence) }}
+            </div>           
+            <div class="field">
+              <div class="label">NOM/PRENOM TEMOINS</div>
+{{ form_row(form.addresse_agence) }}
+            </div>
+             <div class="field">
+              <div class="label">CONTACT TEMOINS</div>
+{{ form_row(form.pays_imarticul) }}
+            </div>
+            <div class="field">
+              <div class="label">CODE POSTALE TEMOINS</div>
+{{ form_row(form.nom) }}
+            </div>
+             <div class="field">
+              <div class="label">NUMERO PERMIS</div>
+{{ form_row(form.adres_temoin) }}
+            </div>
+            <div class="field btns">
+              <button class="prev-1 prev">Previous</button>
+              <button class="next-1 next">Next</button>
+            </div>
+          </div>
+
+          <div class="page">
+           <div class="title">vehicule A</div>
+           <div class="mes">SOCIETE D'ASSRANCE</div>
+          <div class="field">
+              <div class="label">NOM SOCIETE</div>
+{{ form_row(form.email_agence) }}
+            </div>
+            <div class="field">
+              <div class="label">CODE POSTALE SOCIETE</div>
+{{ form_row(form.nom_conduct) }}
+            </div>
+             <div class="field">
+              <div class="label">CONTACT SOCIETE</div>
+{{ form_row(form.prenom_conduct) }}
+            </div>
+             <div class="field">
+              <div class="label">EMAIL</div>
+{{ form_row(form.addres_conduct) }}
+            </div>
+              <div class="field">
+              <div class="label">NOM DE L'ASSURE</div>
+{{ form_row(form.nom_societe) }}
+            </div>
+            <div class="field">
+              <div class="label">NOM/PRENOM CONDUCTEUR</div>
+{{ form_row(form.tel_email) }}
+            </div>
+            <div class="field">
+              <div class="label">CONTACT CONDUCTEUR</div>
+{{ form_row(form.num_permis) }}
+            </div>
+            <div class="field btns">
+              <button class="prev-2 prev">Previous</button>
+              <button class="next-2 next">Next</button>
+            </div>
+          </div>
+<div class="page">
+          <div class="title">vehicule A</div>
+           <div class="mes"> Circonstances de l’accident </div>
+           <div class="field" style="background: #fff;height: 75px;width: 317.4px;">
+              <div class="lab">En stationnement</div>
+              <div class="labe">A l'arret</div>
+{{ form_row(form.circontance_14) }}
+            </div>
+            <div class="field" style="background: #fff;height: 75px;width: 317.4px;">
+              <div class="lab">Quittait un stationnement</div>
+              <div class="labe">Ouvrait une portiere</div>
+{{ form_row(form.circontance_15) }}
+            </div>
+  <div class="field" style="background: #fff;height: 75px;width: 317.4px;">
+              <div class="lab">Collision arriere</div>
+              <div class="labe">CIRCONSTANCE ACCIDENT</div>
+{{ form_row(form.circontance_16) }}
+            </div>
+  <div class="field" style="background: #fff;height: 75px;width: 317.4px;">
+              <div class="lab">Collision oblique</div>
+              <div class="labe">CIRCONSTANCE ACCIDENT</div>
+{{ form_row(form.circontance_17) }}
+            </div>
+<div class="field" style="background: #fff;height: 75px;width: 317.4px;">
+              <div class="lab">CIRCONSTANCE ACCIDENT</div>
+              <div class="labe">CIRCONSTANCE ACCIDENT</div>
+{{ form_row(form.circontance_18) }}
+            </div>
+
+            <div class="field btns"  style="margin-top: 75px;">
+              <button class="prev-3 prev">Previous</button>
+              <button class="next-3 next">Next</button>
+            </div>
+          </div>
+          <div class="page">
+          <div class="title">vehicule A</div>
+           <div class="mes">CROQUIS</div>
+   <div class="field ">
+<div class="accordion">
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_1) }} <p>Collision frontale</p>
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (54).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_2) }} <p>Collision laterale</p>
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_3) }} <p>Collision arriere</p>
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_4) }} <p>Collision oblique</p>
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+
+ <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_5) }}
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+
+   <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_6) }}
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+
+   <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_7) }}
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+
+   <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_8) }}
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+
+   <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_9) }}
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+
+   <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_10) }}
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+{{ form_row(form.circontance_11) }}
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+<img src="{{ asset('../images/croquis/Capture d’écran (16).png') }}" height="125" width="250" style="margin: 5px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+            <div class="field btns" style="margin-top: 180.4%;">
+              <button class="prev-4 prev">Previous</button>
+              <button class="next-4 next">Next</button>
+            </div>
+          </div>
+
+            <div class="page">
+           <div class="title">vehicule A</div>
+           <div class="mes">TEMOINS</div>
+           <div class="field">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d246954.40911394768!2d-17.46849882323111!3d14.731655450945357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2ssn!4v1638467929852!5m2!1sfr!2ssn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+     <div class="field" style="margin-top: 126%;">
+{{ form_row(form.titre) }}
+            </div>
+            <div class="field">
+{{ form_row(form.mes_observ) }}
+            </div>
+            <div class="field btns" style="margin-top: 0%;">
+              <button class="prev-5 prev">Previous</button>
+              <button class="submit">Submit</button>
+            </div>
+          </div>
+ {{ form_end(form) }}
+      </div>
+    </div>
+
+  
+      <div class="diff_service_item">
+              <img class="img-menu" src="{{ asset('images/right.jpg') }}" alt="Service_image">
+      </div>
+    </div>
+
+ 
+{% endblock %}
+
+
+

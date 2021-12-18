@@ -1,0 +1,35 @@
+   {% if app.request.attributes.get('_route') == 'users_profil_modifier' %}
+ <form name="users" method="post">
+<div>
+    <label class="required" for="editerprofile_prenom">Prenom</label>
+    <input id="editerprofile_prenom" type="text" name="editerprofile[prenom]" required="required" value="{{ users.prenom }}">
+    </div>
+    <div>
+    <label class="required" for="editerprofile_addresse">Addresse</label>
+    <input id="editerprofile_email" type="text" name="editerprofile[email]" required="required" value="{{ users.email }}">
+    </div>
+    <div>
+    <label class="required" for="editerprofile_telephone"> Telephone</label>
+    <input id="editerprofile_telephone" type="text" name="editerprofile[telephone]" required="required" value="{{ users.telephone }}">
+    </div>
+    <div>
+    <label class="required" for="editerprofile_nom">Nom</label>
+    <input id="editerprofile_nom" type="text" name="editerprofile[nom]" required="required" value="{{ users.nom }}">
+    <div>
+    <button type="submit" id="editer_profile_Valider" name="editerprofile[Valider]" class="submit-btn">Valider</button>
+    </div>
+ </form>
+    {% else %}
+<form name="users" method="post">
+    <div>
+    <label class="required" for="editerprofile_addresse">Addresse</label>
+    <input id="editerprofile_addresse" type="text" name="editerprofile[addresse]" required="required" value="{{ users.addresse }}">
+    </div>
+    <div>
+    <label class="required" for="editerprofile_ville"> Ville</label>
+    <input id="editerprofile_telephone" type="text" name="editerprofile[ville]" required="required" value="{{ users.ville }}">
+    </div>
+    <button type="submit" id="editer_profile_Valider" name="editerprofile[Valider]" class="submit-btn">Valider</button>
+    </div>
+ </form>
+      {% endif %}

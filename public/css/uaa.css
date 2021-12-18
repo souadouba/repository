@@ -1,0 +1,165 @@
+
+::selection{
+  color: #fff;
+  background: burlywood;
+}
+.containers{
+  width: 650px;
+  background: blue;
+  text-align: center;
+  border-radius: 5px;
+  padding: 50px 35px 10px 35px;
+}
+
+.containers .form-outers{
+  width: 100%;
+  overflow: hidden;
+}
+.containers .form-outers form{
+  display: flex;
+  width: 400%;
+}
+.form-outers form .pages{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-outers form .pages .title{
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+}
+.form-outers form .pages .fields{
+  width: 330px;
+  height: 45px;
+  margin: 45px 0;
+  display: flex;
+  position: relative;
+}
+form .pages .fields .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .pages .fields input{
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+form .pages .fields select{
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+form .pages .fields button{
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #d33f8d;
+  margin-top: -20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+form .pages .fields button:hover{
+  background: #000;
+}
+form .pages .btn button{
+  margin-top: -20px!important;
+}
+form .pages .btn button.prev{
+  margin-right: 3px;
+  font-size: 17px;
+}
+form .pages .btn button.next{
+  margin-left: 3px;
+}
+.containers {
+  display: flex;
+  margin: 40px 0;
+  user-select: none;
+}
+.containers .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.containers .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.step .bullet{
+  height: 25px;
+  width: 25px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.step .bullet.active{
+  border-color: #d43f8d;
+  background: #d43f8d;
+}
+.step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.step .bullet.active span{
+  display: none;
+}
+.step .bullet:before,
+.step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -51px;
+  height: 3px;
+  width: 44px;
+  background: #262626;
+}
+.step .bullet.active:after{
+  background: #d43f8d;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.step:last-child .bullet:before,
+.step:last-child .bullet:after{
+  display: none;
+}
+.step p.active{
+  color: #d43f8d;
+  transition: 0.2s linear;
+}
+.step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.step .check.active{
+  display: block;
+  color: #fff;
+}

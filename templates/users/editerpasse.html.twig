@@ -1,0 +1,224 @@
+{% extends 'profil.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+    
+<style>
+
+
+ #bodyright{
+       
+        padding:3.7%;
+               
+        padding-bottom:0%;
+               
+        box-sizing:border-box;
+               
+        border-radius: 1px;
+               
+        margin-top: 5%;
+               
+        width: 100%;
+               
+        height: 425px;
+               
+        background: #000;
+               
+        margin-left: 0%;
+            }
+      #bodyright h2{
+                border-radius:1px;
+                height:50px;
+                line-height:25px;
+                text-align: left;
+                margin-left: 0%;
+                background: #48DBFB;
+            }
+                .sign-up-form-3 {
+                    width: 872px;
+                    background-color:#f8e896;
+                    margin:auto;
+                    margin-left: 11%;
+                    margin-top: 1%;
+                    border-radius: 5px ;
+                    border: 2px solid #97C6E3;
+                    padding: 3px;
+                    }
+.container12{
+   max-width: 861px;
+    background: #97C6E3;
+    width: 861px;
+    padding: 13px 20px 13px 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+  .container12 .text{
+    text-align: left;
+    font-size: 22px;
+    width: 111.1%;
+    background: blue;
+    -webkit-text-fill-color: #000;
+    margin-top: -2%;
+    margin-left: -5.5%;
+  }
+  .container12 form{
+    padding: 20px 0 0 0;
+  }
+  .container12 form .form-row{
+    display: flex;
+    margin: 32px 0;
+  }
+  form .form-row .input-data{
+    width: 100%;
+    height: 40px;
+    margin: 0 20px;
+    position: relative;
+  }
+  
+  .input-data input{
+    display: block;
+    width: 53%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0,0,0, 0.12);
+    margin-left: -3%;
+  }
+  .input-data input:focus ~ label, .password .password:focus ~ label,
+  .input-data input:valid ~ label, .password .password:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: blue;
+  }
+  
+  .input-data label{
+    position: absolute;
+    pointer-events: none;
+    bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-left: -3%;
+  }
+  
+  .input-data .underline{
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 53%;
+    margin-left: -3%;
+  }
+  .input-data .underline:before{
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 100%;
+    background: #3498db;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  .input-data input:focus ~ .underline:before,
+  .input-data input:valid ~ .underline:before,
+  .textarea .password:focus ~ .underline:before,
+  .textarea .password:valid ~ .underline:before{
+    transform: scale(1);
+  }
+  .submit-btn {
+    overflow: hidden;
+    height: 45px!important;
+    width: 50%!important;
+    font-size: 25px;
+  }
+    #bodyright form button{
+                margin-top:10px;
+                border-radius:3px;
+                border:2px solid #f8e896;
+                width:100px;
+                height:40px;
+                font-weight:bold;
+                outline:none;
+                background:#fff;
+            }
+            
+            #bodyright form button:hover{
+                background:#f8e896;
+                color:#fff;
+            }
+
+  @media (max-width: 870px) {
+.sub-menu li{ 
+    width: 226.5px;
+    border: 1px solid white;
+}
+  #bodyright {
+    display: block;
+	margin-top: 15%;
+	margin-left: -3.5%;
+  }
+ .sign-up-form-3 {
+    width: 40%;
+    margin-left: 0%;
+  display: block;
+  }
+  .container12{
+    width: 493px;
+  }
+
+  .container12 form{
+      width:100%;
+    }
+
+}
+</style>
+
+
+<section class="section-2">
+
+{% for message in app.flashes('error') %}
+<div style="font-size: 22px;font-weight: 600;padding: 20px 30px;border-bottom: 1px solid red;  background-color: #025ce3;" class="alert alert-danger">{{message}}</div>	
+{% endfor %}
+
+<div class="banner"> 
+	{% for message in app.flashes('message') %}
+			<div class="col-xs4">
+				<div class="p-3 my-2 rounded-2 success">{{message}}</div>
+			</div>
+		{% endfor %}
+         <div class="banner-content">
+         
+		    <!-- Hero Section  -->
+   
+				   <!-- Hero Section  -->  
+       </div>
+       </div>  
+
+  <!-- banner -->
+<div class="scroll" id="bodyright">
+ 
+<h2>Modification du mot de passe de {{ app.user.prenom }} {{ app.user.nom }}</h2>
+
+	<fieldset class="sign-up-form-3">
+	 <div class="container12">
+	 <form method="post">
+         <div class="form-row">
+            <div class="input-data">
+              <input type="password" id="pass" name="pass" class="form-control" required>
+               <div class="underline"></div>
+               <label for="pass">Nouveau mot de passe</label>
+            </div>
+         </div>
+             <div class="form-row">
+            <div class="input-data">
+                <input type="password" id="pass2" name="pass2" class="form-control" required>
+               <div class="underline"></div>
+               <label for="pass2">Saisissez à nouveau le mot de passe</label>
+            </div>
+         </div>
+              <button class="submit-btn" style="margin-top:-2%">Enrigistrer</button>
+      </form> 
+</div>   	       	                
+</fieldset>
+</div>
+
+ </section>
+{% endblock %}

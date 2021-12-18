@@ -1,0 +1,166 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="content">
+          <div class="container">
+    
+      <div class="progress-bar">
+     
+          <p>Bienvenue sur Expat-Dakar</p><br>              
+ 
+      </div>
+          <p style="font-size: 20px;">
+          <button class="clack"><div class="btn-round"><i class="fas fa-info"></i></div></button>
+          <button class="click"> 
+{% for flashError in app.flashes('verify_email_error') %}<div class="alert alert-danger" role="alert">{{ flashError }}</div>{% endfor %}
+Vous devez vous connnecter pour continuer.
+    </button>
+          </p>
+      <div class="form-outer">
+    {{ form_start(registrationForm) }}
+     <div class="page slide-page">
+            
+<div class="field">
+        {{ form_row(registrationForm.email,{'attr': {'placeholder': 'Entrer votre email'}}) }}
+<i class='fas fa-phone-alt' style="  position: absolute;top: 92%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i>
+</div>
+    <div class="field">
+              <button class="firstNext next" style="margin-top:8%;"><i class="fas fa-angle-double-right"></i></button>
+    </div>
+</div>
+<div class="page">
+    
+<div class="field">
+       {{ form_row(registrationForm.plainPassword,{'attr': {'placeholder': 'Entrer votre mot de passe'}}, {
+            label: 'Password'
+        }) }}
+<i class='fas fa-phone-alt' style="  position: absolute;top: 95%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i>
+             </div>
+            
+            <div class="field btns">
+              <button class="prev-1 prev" style="margin-top:8%;"><i class="fas fa-angle-double-left"></i></button>
+              <button class="next-1 next" style="margin-top:8%;"><i class="fas fa-angle-double-right"></i></button>
+            </div>
+          </div>
+
+          <div class="page">
+    
+            <div class="field">
+        {{ form_row(registrationForm.nom ,{'attr': {'placeholder': 'Entrer votre nom'}}) }}
+       <i class='fas fa-phone-alt' style="  position: absolute;top: 95%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i>
+
+         </div>
+            
+            <div class="field btns">
+              <button class="prev-2 prev" style="margin-top:8%;"><i class="fas fa-angle-double-left"></i></button>
+              <button class="next-2 next" style="margin-top:8%;"><i class="fas fa-angle-double-right"></i></button>
+            </div>
+          </div>
+
+          <div class="page">
+          
+            <div class="field">
+        {{ form_row(registrationForm.prenom ,{'attr': {'placeholder': 'Entre votre prenom'}}) }}
+        <i class='fas fa-phone-alt' style="  position: absolute;top: 95%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i>
+              </div>
+            
+            <div class="field btns">
+              <button class="prev-3 prev" style="margin-top:8%;"><i class="fas fa-angle-double-left"></i></button>
+              <button class="next-3 next" style="margin-top:8%;"><i class="fas fa-angle-double-right"></i></button>
+            </div>
+          </div>
+
+ <div class="page">
+    
+            <div class="field">
+        {{ form_row(registrationForm.ville ,{'attr': {'placeholder': 'Entrer votre addresse actuelle'}}) }}
+        <i class='fas fa-phone-alt' style="  position: absolute;top: 95%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i> 
+         </div>
+            
+            <div class="field btns">
+              <button class="prev-4 prev" style="margin-top:8%;"><i class="fas fa-angle-double-left"></i></button>
+              <button class="next-4 next" style="margin-top:8%;"><i class="fas fa-angle-double-right"></i></button>
+            </div>
+          </div>
+
+<div class="page">
+    
+            <div class="field">
+        {{ form_row(registrationForm.addresse ,{'attr': {'placeholder': 'Entrer votre addresse actuelle'}}) }}
+        <i class='fas fa-phone-alt' style="  position: absolute;top: 95%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i> 
+         </div>
+            
+            <div class="field btns">
+              <button class="prev-5 prev" style="margin-top:8%;"><i class="fas fa-angle-double-left"></i></button>
+              <button class="next-5 next" style="margin-top:8%;"><i class="fas fa-angle-double-right"></i></button>
+            </div>
+          </div>
+
+          <div class="page">
+    
+            <div class="field">
+        {{ form_row(registrationForm.telephone ,{'attr': {'placeholder': 'Entrer votre numero de telephone'}}) }}
+       <i class='fas fa-phone-alt' style="  position: absolute;top: 95%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i>
+       
+        </div>
+   <div class="nb-3">
+        {{ form_row(registrationForm.agreeTerms) }}
+        </div> 
+          <div class="field btns">
+              <button class="prev-6 prev" style="margin-top:-5%;"><i class="fas fa-angle-double-left"></i></button>
+              <button type="submit" class="submit" style="margin-top:-5%;">Register</button>
+           
+             </div>
+          </div>
+
+    {{ form_end(registrationForm) }}
+    
+<div style="margin-top:-5%;width: 40%;background-color: #000; height:3px;margin-left:0%;"></div>
+<div style="margin-top:-1%;width: 40%;background-color: #000; height:3px;margin-left:60%;"></div>
+<div class="auth">Ou</div>
+
+        <div class="links">
+        <div class="facebook">
+          <span class="fab fa-facebook-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Facebook</p>
+        </div>
+        <div class="google">
+          <span class="fab fa-google-plus-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Google</p>
+        </div>
+      </div>
+       <div class="links">
+        <div class="facebook">
+          <span class="fab fa-facebook-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Facebook</p>
+        </div>
+        <div class="google">
+          <span class="fab fa-google-plus-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Google</p>
+        </div>
+      </div>
+   
+
+
+   </div>
+      
+         <div class="container2">
+    <div class="info">
+      Mot de passe oublier ? <a href="{{ path('app_forgot_password_request') }}" ><span>Click-ici</span></a>
+    </div>
+ </div> 
+  <div class="container3">
+    <div class="info">
+       <h2>
+         En créant un compte et en vous connectant,
+       </h2>
+       <span>vous acceptez les Conditions et Charte d'utilisation.</span>
+    </div>
+ 
+ </div>
+   </div>
+
+{% endblock %}
+

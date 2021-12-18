@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+        {#{{ encore_entry_link_tags('app') }}#}
+              <link rel="stylesheet" href="{{ asset('css/uaa.css') }}">
+              <link rel="stylesheet" href="{{ asset('css/circonstance.css') }}">
+              <link rel="stylesheet" href="{{ asset('css/circonstance2.css') }}">
+
+        <script defer src="/fonts/fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js"></script>
+
+        {% endblock %}
+
+    </head>
+    <body>
+
+        {% block body %}{% endblock %}
+
+        {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+
+            <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
+            <script src="{{ asset('js/styles_2_b.js') }}"></script>
+            <script src="{{ asset('js/btn.js') }}"></script>
+            <script src="{{ asset('js/circonstance.js') }}"></script>
+
+            <script src="{{ asset('js/f2.js') }}"></script>
+            <script src="{{ asset('js/f3.js') }}"></script>
+            <script src="{{ asset('js/f4.js') }}"></script>
+
+            <script>
+var i = 1;
+function myfun(){
+var x = 	document.getElementById("annonces_images_0").files[0];
+var currentimage1  = document.getElementById("changeimage1");
+var reader =   new FileReader();
+ reader.onload = function(){
+ if(i == "1"){
+currentimage1.src = reader.result;
+}
+}
+reader.readAsDataURL(x);
+}
+
+</script>
+        {% endblock %}
+    </body>
+</html>

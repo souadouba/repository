@@ -1,0 +1,113 @@
+body{
+    background:#fff;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+}
+a {
+    list-style: none;
+}
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    display: block;
+    margin-left: 45%;
+}
+h1 {
+    font-family: roboto,cursive;
+    font-size: 22px;
+}
+.head{
+    background: red;
+    color: #fff;
+    padding: 10px 70px;
+    font-family: sans-serif;
+    font-size: 30px;
+    text-align: center;
+    border-top:1px solid #37f;	
+}
+.nav{
+    transition: 500ms;
+    padding: 20px 0px;
+    background: yellow;
+    text-align: center;
+   }
+
+.main-menu>li{
+    display: inline-block;
+    width: 250px;
+    padding: 10px 10px;
+    margin-left: 10px;
+    margin: 2px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-left: 1px solid white;
+    transition: .4s;
+    cursor: pointer;
+    box-sizing: border-box;
+    background: turquoise;
+}
+.main-menu li:hover .sub-menu{
+    display: block;
+    width: 18.3%;
+}
+.sub-menu{
+    display: none;
+    position: absolute;
+    padding: 0px;
+    margin-top: 15px;
+    margin-left: -11px;
+    float: right;
+    width: 150px;
+    text-align: left;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px grey;        
+}
+.sub-menu li{
+    list-style-type: none;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    border: 2px solid white;
+    background: #37f;
+}
+.main-menu>li:hover, .sub-menu>li:hover{
+    background: #35c;
+}
+#navbar a:hover {
+    background-color: #fff;
+    color: #1b1b1b;
+}
+.section-1 {
+	background: #fff;
+	width: 100%;
+	background-size: cover;
+	height: 12vh;
+	background-position: center;
+}
+.section-2 {
+	padding: 20px;
+	padding-left: 60px;
+}
+.section-2 h1 {
+	padding: 20px;
+	font-size: 40px;
+}
+.section-2 p {
+	padding: 20px;
+	line-height: 1.8em;
+	font-size: 18px;
+}
+.sticky {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    background: chartreuse !important;
+}
+    
+.sticky + .section-2 {
+    padding-right: 90px;
+}

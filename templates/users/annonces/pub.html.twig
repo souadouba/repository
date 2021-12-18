@@ -1,0 +1,361 @@
+{% extends 'base2.html.twig' %}
+
+{# On crée des variables personnalisées #}
+{% set queryParams = app.request.query.all %}
+
+{% block title %}Liste des annonces{% endblock %}
+
+{% block body %}
+           <style>
+             body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #maCarte {
+            width: 100%;
+            height: 40vh;
+        }
+        .container{
+  width: 50%;
+  background: red;
+  text-align: center;
+  border-radius: 0px;
+  padding: 50px 35px 10px 35px;
+  margin-left:50%;
+}
+        </style>
+
+
+      
+
+
+<div class="banner"> 
+	{% for message in app.flashes('message') %}
+			<div class="col-xs4">
+				<div class="p-3 my-2 rounded-2 success">{{message}}</div>
+			</div>
+		{% endfor %}
+         <div class="banner-content">
+         
+		    <!-- Hero Section  -->
+   
+				   <!-- Hero Section  -->  
+       </div>
+       </div>  
+
+  <!-- banner -->
+
+
+<div id="bodyleft">
+
+<form method="post" enctype="multipart/form-data">	
+		<table>
+ 
+		
+			<tr>
+                <th>informatio du vehicule</th>
+			        	<th>Preneur d'assurance/assure</th>
+                <th>SOCIETE D'ASSRANCE</th>
+                <th>CONDUCTEUR</th>
+                <th>Circonstances de l’accident</th>
+			        	<th>Localisation</th>
+                <th>PrCroquis</th>            
+			</tr>	
+				<tr>
+                    <td style='min-width:150px' ></td>
+                    <td style='min-width:150px' ></td>
+                    <td style='min-width:150px' ></td>
+                    <td style='min-width:150px' ></td>
+                    <td style='min-width:150px' ></td>
+                    <td style='min-width:150px' class="text-end"></td>
+                    <td style='min-width:150px'class="text-end"></td>
+                </tr>
+
+		</table>
+	</form>
+</div>
+
+</div>
+
+<div class="ligne8" style="margin-top:0.1%;width: 40%;background-color: #000; height:3px;margin-left:5%;"></div>
+<img src="{{ asset('../images/panier.jpg') }}" alt="Image" width="35px"height="35px" style="margin-left: 46.7%;margin-top: -4.5%;">
+<div class="ligne8" style="margin-top:-1.6%;width: 40%;background-color: #000; height:3px;margin-left:51.2%;"></div>
+
+
+  
+            <div class="container55">
+               <div class="text">
+informatio du vehicule
+               </div>
+<table>
+ 
+{% for annonce in annonces %}
+		
+			<tr style="text-align:left">
+				<th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">NUMERO IMMARTICULATION</th>
+                <td style='min-width:100px;color:#000;border-bottom: 2px solid #000'> {{annonce.id}} </td>
+			</tr>	
+
+			<tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">TYPE VEHICULE</th>
+                <td style='min-width:100px;color:#000;border-bottom: 2px solid #000'>{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">DEGAT APPARENT DU VEHICUE</th>
+                <td style='min-width:100px;color:#000;border-bottom: 2px solid #000'>{{annonce.id}}</td>
+            </tr>
+	
+      {% endfor %}
+		</table>
+
+    <table>
+ 
+{% for annonce in annonces %}
+		
+				{% for image in annonce.images %}		
+        <img src="{{ asset('/images/annonces/' ~ image.nom) }}" width="285" height="140px">
+				<img src="{{ asset('/images/annonces/' ~ image.nom) }}" width="285" height="140px">
+				<img src="{{ asset('/images/annonces/' ~ image.nom) }}" width="285" height="140px">
+				<img src="{{ asset('/images/annonces/' ~ image.nom) }}" width="285" height="140px">				
+        {% endfor %}
+
+      {% endfor %}
+		</table>
+               <div class="text">
+Preneur d'assurance/assure
+               </div>
+               <table>
+ 
+{% for annonce in annonces %}
+		
+			<tr style="text-align:left">
+				<th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">Sous total</th>
+       <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+			</tr>	
+
+			<tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">Livraison</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">Total</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+
+  {% endfor %}
+		</table>
+              <div class="text">
+SOCIETE D'ASSRANCE
+               </div>
+               <table>
+ 
+{% for annonce in annonces %}
+		
+			<tr style="text-align:left">
+				<th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">M/PRENOM DE L'ASSURE</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000"> {{annonce.id}} </td>
+			</tr>	
+
+			<tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CONTACT DE L'ASSURE</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CODE POSTALE DE L'ASSURE</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+             <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">NOM/PRENOM TEMOINS</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+              <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CONTACT TEMOINS</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+              <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CODE POSTALE TEMOINS</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+
+  {% endfor %}
+		</table>
+              <div class="text">
+CONDUCTEUR
+               </div>
+               <table>
+ 
+{% for annonce in annonces %}
+		
+			<tr style="text-align:left">
+				<th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">NOM SOCIETE</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000"> {{annonce.id}} </td>
+			</tr>	
+
+			<tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CODE POSTALE SOCIETE</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">CONTACT SOCIETE</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+
+<tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">NOM/PRENOM CONDUCTEUR</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+
+<tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">CONTACT CONDUCTEUR</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+<tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">CODE POSTALE CONDUCTEUR</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+
+  {% endfor %}
+		</table>
+              <div class="text">
+Circonstances de l’accident
+               </div>
+               <table>
+ 
+{% for annonce in annonces %}
+		
+			<tr style="text-align:left">
+				<th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CIRCONSTANCE ACCIDENT</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000"> {{annonce.id}} </td>
+			</tr>	
+
+			<tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CIRCONSTANCE ACCIDENT</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">CIRCONSTANCE ACCIDENT</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CIRCONSTANCE ACCIDENT</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">CIRCONSTANCE ACCIDENT</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">CIRCONSTANCE ACCIDENT</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">CIRCONSTANCE ACCIDENT</th>
+                <td style="min-width:100px;color:#000;border-bottom: 2px solid #000">{{annonce.id}}</td>
+            </tr>
+
+  {% endfor %}
+		</table>
+              <div class="text">
+Localisation
+               </div>
+               <table>
+  <div id="maCarte"></div>
+<!-- Fichiers Javascript -->
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+        <script>
+             // Map initialization 
+               {% for annonce in annonces %}
+
+    var maCarte = L.map('maCarte').setView([{{annonce.titre}}], 13);
+
+{% endfor %} 
+
+    //osm layer
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    osm.addTo(maCarte);
+
+    if(!navigator.geolocation) {
+        console.log("Your browser doesn't support geolocation feature!")
+    } else {
+        setInterval(() => {
+            navigator.geolocation.getCurrentPosition(getPosition)
+        }, 5000);
+    }
+     var marker, circle;
+
+    function getPosition(position){
+
+        var lat = position.coords.latitude
+        var long = position.coords.longitude
+        var accuracy = position.coords.accuracy
+
+        if(marker) {
+            map.removeLayer(marker)
+        }
+
+        if(circle) {
+            map.removeLayer(circle)
+        }
+
+        marker = L.marker([lat, long])
+        circle = L.circle([lat, long], {radius: accuracy})
+
+        var featureGroup = L.featureGroup([marker, circle]).addTo(maCarte)
+
+        map.fitBounds(featureGroup.getBounds())
+
+        console.log("Your coordinate is: Lat: "+ lat +" Long: "+ long+ " Accuracy: "+ accuracy)
+    }
+            var tableauMarqueurs = [];
+
+            // On initialise la carte
+            {% for annonce in annonces %}
+
+            var carte = L.map('maCarte').setView([{{annonce.titre}}], 13);
+{% endfor %}            
+            // On charge les "tuiles"
+            L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                // Il est toujours bien de laisser le lien vers la source des données
+                attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(maCarte);
+
+           
+        </script>
+		</table>
+              <div class="text">
+Croquis 
+               </div>
+               <table>
+ 
+{% for annonce in annonces %}
+		
+			<tr style="text-align:left">
+				<th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">Sous total</th>
+                <td style='min-width:100px;color:#000;border-bottom: 2px solid #000'> {{annonce.id}} </td>
+			</tr>	
+
+			<tr>
+                <th style="min-width:445px;text-align:left;border-bottom: 2px solid #000">Livraison</th>
+                <td style='min-width:100px;color:#000;border-bottom: 2px solid #000'>{{annonce.id}}</td>
+            </tr>
+            <tr>
+                <th style="min-width:445px;text-align:left;;border-bottom: 2px solid #000">Total</th>
+                <td style='min-width:100px;color:#000;border-bottom: 2px solid #000'>{{annonce.id}}</td>
+            </tr>
+
+  {% endfor %}
+		</table>
+      <div class="button-area">
+        <button type="submit"><a href="{{ path('users_annonces_ajout') }}">Valider</a></button>
+        <span></span>
+      </div>
+
+            </div>
+
+{% endblock %}

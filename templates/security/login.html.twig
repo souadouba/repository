@@ -1,0 +1,108 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{# Bloc destiné à recevoir le CSS spécifique à la page #}
+
+{% block body %}
+
+ <div class="content">
+          <div class="container">
+    
+      <div class="progress-bar">
+     
+          <p>Bienvenue sur Expat-Dakar</p><br>              
+ 
+      </div>
+           <p style="font-size: 20px;">
+          <button class="clack"><div class="btn-round"><i class="fas fa-info"></i></div></button>
+          <button class="click"> 
+{% if error %}<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>{% else %}
+Vous devez vous connnecter pour continuer.
+{% endif %}
+    </button>
+          </p>
+   <div class="form-outer">
+
+<form method="post">
+
+<div class="page slide-page">
+            
+<div class="field">
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Entrer votre email" autocomplete="email" required autofocus>
+  <i class='fas fa-phone-alt' style="  position: absolute;top: 50%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i>
+   </div>
+    <div class="field">
+              <button class="firstNext next" style="margin-top:5%;"><i class="fas fa-angle-double-right"></i></button>
+    </div>
+</div>
+
+<div class="page">
+    
+<div class="field">
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Entrer votre mot de passe" autocomplete="current-password" required>
+<i class='fas fa-phone-alt' style="  position: absolute;top: 50%;left: 18px;color: #ccc;font-size: 17px;pointer-events: none;transform: translateY(-50%);"></i>
+</div>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <div class="mb-3">
+                <input type="checkbox" name="_remember_me"> Remember me
+        </div>
+        
+    
+ <div class="field btns">
+<button class="prev-1 prev" style="margin-top:-5%;"><i class="fas fa-angle-double-left"></i></button>
+          
+    <button class="submit" type="submit" style="margin-top:-5%;">
+        Sign in
+    </button>
+      </div>
+          </div>
+</form>
+
+   
+<div style="margin-top:-5%;width: 40%;background-color: #000; height:3px;margin-left:0%;"></div>
+<div style="margin-top:-1%;width: 40%;background-color: #000; height:3px;margin-left:60%;"></div>
+<div class="auth">Ou</div>
+
+        <div class="links">
+        <div class="facebook">
+          <span class="fab fa-facebook-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Facebook</p>
+        </div>
+        <div class="google">
+          <span class="fab fa-google-plus-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Google</p>
+        </div>
+      </div>
+       <div class="links">
+        <div class="facebook">
+          <span class="fab fa-facebook-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Facebook</p>
+        </div>
+        <div class="google">
+          <span class="fab fa-google-plus-square"></span><p style=" position: absolute;font-size: 17px;
+    font-weight: bold;padding-left: 50px;font-family: 'Open Sans', sans-serif;line-height: 50px;">Google</p>
+        </div>
+      </div>
+      
+   </div>
+      <div class="container2">
+    <div class="info">
+      Mot de passe oublier ? <a href="{{ path('app_forgot_password_request') }}" ><span>Click-ici</span></a>
+    </div>
+ </div> 
+ 
+  <div class="container3">
+    <div class="info">
+       <h2>
+         En créant un compte et en vous connectant,
+       </h2>
+       <span>vous acceptez les Conditions et Charte d'utilisation.</span>
+    </div>
+ 
+ </div>
+   </div>
+
+{% endblock %}
+
